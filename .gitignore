@@ -1,3 +1,6 @@
 *
 !.gitignore
 !README.md
+!/ET/
+!/ET/**
+/ET/nbproject/private/
