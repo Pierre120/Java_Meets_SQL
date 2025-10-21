@@ -5,3 +5,4 @@
 !/Demo/**
 /Demo/database/*.mwb.bak
 /Demo/nbproject/private/
+/Demo/build/
