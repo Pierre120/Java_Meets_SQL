@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+//import java.sql.*;
+
 
 /**
  *
@@ -16,6 +18,7 @@ import java.sql.SQLException;
  */
 public class World {
     
+    // IMPORTANT: Define DB connection URL
     private static final String DB_URL = "jdbc:mysql://localhost:3306/world";
     private static final String USER = "root";
     private static final String PASSWORD = "12345678";
@@ -28,9 +31,10 @@ public class World {
     public static void main(String[] args) {
         System.out.println("Testing DB Connection...");
         connectDB();
-        getCountryLanguage("PHL", "F");
+        getCountryLanguage("PHL", "");
     }
     
+    // 1. Establish a connection to the DB
     public static void connectDB() {
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
@@ -53,14 +57,22 @@ public class World {
         try {
             PreparedStatement stmt;
             stmt = conn.prepareCall(query.toString());
+            // Setting of parameter index starts at index 1.
             stmt.setString(1, countryCode);
             
             if (official.equals("T") || official.equals("F")) {
                 stmt.setString(2, official);
             }
             
+            // For fetching multilple records
             ResultSet rs;
             rs = stmt.executeQuery();
+            
+            // For checking if a specific record exists
+            // stmt.execute();
+
+            // For INSERT, DELETE, and UPDATE instructions. trackng number of rows updated
+            // stmt.executeUpdate();
             
             while (rs.next()) {
                 String code = rs.getString("CountryCode");
