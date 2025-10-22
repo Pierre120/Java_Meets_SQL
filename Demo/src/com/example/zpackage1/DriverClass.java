@@ -43,7 +43,7 @@ public class DriverClass {
         Cat cat = new Cat();
         
         // Directly accessing Cat attributes via Cat object
-        System.out.println("DriverClass accessing Animal attributes via Animal object...");
+        System.out.println("DriverClass accessing Cat attributes via Animal object...");
         // Access modifier: private
         // System.out.println("private (id) is: " + cat.id); // Can only be accessed within Animal class
         // System.out.println("private (cutenessLevel) is: " + cat.cutenessLevel); // only accessible within cat class
@@ -61,7 +61,7 @@ public class DriverClass {
         System.out.println();
         
         // Cat object accessing its attributes within itself
-        System.out.println("Animal object accessing its attribute within itself...");
+        System.out.println("Cat object accessing its attribute within itself...");
         cat.showAllAttributes();
         System.out.println();
         
